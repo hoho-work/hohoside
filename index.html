@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HohoSide — Notes, Tasks &amp; Clips in your side panel</title>
+  <meta name="title-en" content="HohoSide — Notes, Tasks &amp; Clips in your side panel">
+  <meta name="title-zh" content="HohoSide — 侧边栏里的笔记、待办与摘录">
+  <meta name="description" content="Markdown notes, tasks and web clips in Chrome's side panel. Plain-language reminders, ⌘K search, and your data stays on your computer.">
+  <meta name="description-en" content="Markdown notes, tasks and web clips in Chrome's side panel. Plain-language reminders, ⌘K search, and your data stays on your computer.">
+  <meta name="description-zh" content="Chrome 侧边栏里的 Markdown 笔记、待办与网页摘录。用一句话设提醒，⌘K 找回一切，数据只留在你的电脑上。">
+  <meta property="og:title" content="HohoSide — Notes, Tasks &amp; Clips">
+  <meta property="og:description" content="Markdown notes, tasks and web clips in Chrome's side panel. No sign-up, all local.">
+  <meta property="og:image" content="https://hoho-work.github.io/hohoside/assets/og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>
+    // Pick the language before first paint so nothing flashes.
+    (function () {
+      var q = new URLSearchParams(location.search).get('lang'), s = null, l = 'en';
+      try { s = localStorage.getItem('hohoside-lang'); } catch (e) {}
+      if (q === 'zh' || q === 'en') l = q;
+      else if (s === 'zh' || s === 'en') l = s;
+      else {
+        var ls = navigator.languages || [navigator.language || 'en'];
+        for (var i = 0; i < ls.length; i++) {
+          var x = String(ls[i]).toLowerCase();
+          if (x.indexOf('zh') === 0) { l = 'zh'; break; }
+          if (x.indexOf('en') === 0) break;
+        }
+      }
+      document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+    })();
+  </script>
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/icon.png" alt="">HohoSide</a>
+      <nav class="nav">
+        <a href="#features"><span data-en>Features</span><span data-zh>功能</span></a>
+        <a href="#privacy"><span data-en>Privacy</span><span data-zh>隐私</span></a>
+        <a href="#faq"><span data-en>FAQ</span><span data-zh>常见问题</span></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn small" href="https://chromewebstore.google.com/detail/anadoinlkblfpgfagjnnldinfkdjnnfc">
+        <span data-en>Add to Chrome</span><span data-zh>添加到 Chrome</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">
+            <span data-en>Free Chrome extension</span><span data-zh>免费的 Chrome 扩展</span>
+          </span>
+          <h1>
+            <span data-en>Notes right <em>beside the page</em>.</span>
+            <span data-zh>边看网页，<br><em>边记下来</em>。</span>
+          </h1>
+          <p class="lead">
+            <span data-en>HohoSide puts Markdown notes, tasks and web clips in Chrome's side panel. Type “@tomorrow 9am” for a reminder, find anything with ⌘K. No sign-up — your data stays on your computer.</span>
+            <span data-zh>HohoSide 把 Markdown 笔记、待办和网页摘录放进 Chrome 侧边栏。打一句「@明天 9点」就设好提醒，⌘K 一秒找回。不用注册，数据只留在你的电脑上。</span>
+          </p>
+          <div class="cta">
+            <a class="btn" href="https://chromewebstore.google.com/detail/anadoinlkblfpgfagjnnldinfkdjnnfc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M21.17 8H12M3.95 6.06 8.54 14M10.88 21.94 15.46 14"/></svg>
+              <span data-en>Add to Chrome — it's free</span><span data-zh>免费添加到 Chrome</span>
+            </a>
+            <a class="ghost" href="#features"><span data-en>See what it does ↓</span><span data-zh>看看它能做什么 ↓</span></a>
+          </div>
+          <p class="note">
+            <span data-en>Works in Chrome 116+ · English and 简体中文</span>
+            <span data-zh>支持 Chrome 116 及以上 · 中文 / English 界面</span>
+          </p>
+        </div>
+        <img class="shot" src="assets/en-1.png" data-src-en="assets/en-1.png" data-src-zh="assets/zh-1.png" width="740" height="720" alt="HohoSide side panel beside a web page">
+      </div>
+    </section>
+
+    <section class="strip">
+      <div class="wrap">
+        <ul>
+          <li class="reveal"><b><span data-en>Markdown notes</span><span data-zh>Markdown 笔记</span></b><span data-en>Visual or source editing, tables, [[links]]</span><span data-zh>所见即所得或源码，表格、双向链接</span></li>
+          <li class="reveal"><b><span data-en>One task list</span><span data-zh>待办一处汇总</span></b><span data-en>Every checkbox, everywhere</span><span data-zh>笔记里的复选框全在这</span></li>
+          <li class="reveal"><b><span data-en>Clip as you read</span><span data-zh>边读边摘</span></b><span data-en>Right-click or drag in</span><span data-zh>右键或直接拖进来</span></li>
+          <li class="reveal"><b><span data-en>Local first</span><span data-zh>数据在本地</span></b><span data-en>No account, no tracking</span><span data-zh>无账号，无追踪</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="wrap">
+        <article class="feature">
+          <div class="copy reveal">
+            <div class="kicker"><span data-en>Tasks</span><span data-zh>待办</span></div>
+            <h2><span data-en>Every task, in one list</span><span data-zh>所有任务，一个清单</span></h2>
+            <p><span data-en>Every <code>- [ ]</code> in your notes shows up in Todo. Tick it there and the note updates too — only that one line is rewritten.</span><span data-zh>笔记里每一个 <code>- [ ]</code> 都会出现在待办页。在待办里勾选，原笔记同步更新，只改那一行。</span></p>
+            <ul>
+              <li><span data-en>Type <code>@tomorrow 9am</code>, <code>@fri</code> or <code>!1</code> — dates, reminders and priority are set for you</span><span data-zh>直接写 <code>@明天 9点</code>、<code>@周五</code>、<code>!1</code>，日期、提醒和优先级自动设好</span></li>
+              <li><span data-en>Today / Upcoming / Done views, drag to reorder</span><span data-zh>今天 / 计划 / 已完成视图，可拖动排序</span></li>
+              <li><span data-en>System notifications with Done and Snooze, even after a restart</span><span data-zh>到点系统通知，可「完成」或「稍后提醒」，重启浏览器也会补发</span></li>
+            </ul>
+          </div>
+          <img class="shot reveal" src="assets/en-2.png" data-src-en="assets/en-2.png" data-src-zh="assets/zh-2.png" width="740" height="720" loading="lazy" alt="">
+        </article>
+
+        <article class="feature">
+          <div class="copy reveal">
+            <div class="kicker"><span data-en>Clips</span><span data-zh>摘录</span></div>
+            <h2><span data-en>Clip as you read</span><span data-zh>边读边摘</span></h2>
+            <p><span data-en>Right-click “Clip to HohoSide”, press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>, or drag text, images and links straight into the panel. Formatting is kept.</span><span data-zh>右键「摘录到 HohoSide」、按 <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>，或者把文字、图片、链接直接拖进侧边栏，格式原样保留。</span></p>
+            <ul>
+              <li><span data-en>Click a clip to jump back to the page, passage highlighted</span><span data-zh>点一下摘录，回到原网页并高亮那段文字</span></li>
+              <li><span data-en>Browse by time or by site; annotate with your own thoughts</span><span data-zh>按时间或按站点浏览，可以写批注</span></li>
+              <li><span data-en>Drag clips into notes, or turn a page of clips into a note</span><span data-zh>摘录可以拖进笔记，或把一页摘录整理成笔记</span></li>
+            </ul>
+          </div>
+          <img class="shot reveal" src="assets/en-3.png" data-src-en="assets/en-3.png" data-src-zh="assets/zh-3.png" width="740" height="720" loading="lazy" alt="">
+        </article>
+
+        <article class="feature">
+          <div class="copy reveal">
+            <div class="kicker"><span data-en>Search</span><span data-zh>搜索</span></div>
+            <h2><span data-en>Find anything with ⌘K</span><span data-zh>⌘K，找什么都快</span></h2>
+            <p><span data-en>One palette for notes, tasks, clips and commands. Light and dark themes follow your system.</span><span data-zh>一个面板搜笔记、任务、摘录和命令，支持拼音首字母。浅色、深色主题跟随系统。</span></p>
+            <ul>
+              <li><span data-en><kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>K</kbd> anywhere in the panel</span><span data-zh>在面板任意位置按 <kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>K</kbd></span></li>
+              <li><span data-en>Keyboard-first: <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> switch tabs, <kbd>n</kbd> for a new note</span><span data-zh>键盘优先：<kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> 切换页面，<kbd>n</kbd> 新建笔记</span></li>
+              <li><span data-en>English and Chinese interface, switchable any time</span><span data-zh>中文 / English 界面，随时切换</span></li>
+            </ul>
+          </div>
+          <img class="shot reveal" src="assets/en-4.png" data-src-en="assets/en-4.png" data-src-zh="assets/zh-4.png" width="740" height="720" loading="lazy" alt="">
+        </article>
+        <article class="feature">
+          <div class="copy reveal">
+            <div class="kicker"><span data-en>Safety net</span><span data-zh>安心</span></div>
+            <h2><span data-en>Nothing gets lost</span><span data-zh>写下的东西不会丢</span></h2>
+            <p><span data-en>Daily snapshots of everything, version history for every note, and a backup you can export whenever you like.</span><span data-zh>每天自动给所有内容拍快照，每篇笔记都有历史版本，随时可以导出备份。</span></p>
+            <ul>
+              <li><span data-en>Restore a snapshot or an older version in one click</span><span data-zh>一键恢复快照或旧版本</span></li>
+              <li><span data-en>Export Markdown or a full JSON backup</span><span data-zh>导出 Markdown 或完整 JSON 备份</span></li>
+              <li><span data-en>Sync to a local folder that works with Obsidian</span><span data-zh>同步到本地文件夹，与 Obsidian 兼容</span></li>
+            </ul>
+          </div>
+          <img class="shot reveal" src="assets/en-5.png" data-src-en="assets/en-5.png" data-src-zh="assets/zh-5.png" width="740" height="720" loading="lazy" alt="">
+        </article>
+      </div>
+    </section>
+
+    <section class="band" id="privacy">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="kicker"><span data-en>Privacy</span><span data-zh>隐私</span></div>
+          <h2><span data-en>Your data stays on your computer</span><span data-zh>数据只在你的电脑上</span></h2>
+          <p><span data-en>HohoSide has no server and no accounts. Nothing you write is uploaded, and there is no analytics or tracking code.</span><span data-zh>HohoSide 没有服务器，也不需要账号。你写下的内容不会上传，扩展里没有任何统计或追踪代码。</span></p>
+        </div>
+        <div class="facts reveal">
+          <div><b><span data-en>No account</span><span data-zh>无需账号</span></b><span data-en>Install and start writing.</span><span data-zh>装上就能用。</span></div>
+          <div><b><span data-en>Snapshots &amp; history</span><span data-zh>快照与历史版本</span></b><span data-en>Daily snapshots and per-note versions, restorable in one click.</span><span data-zh>每日自动快照、每篇笔记的历史版本，一键恢复。</span></div>
+          <div><b><span data-en>Obsidian-friendly</span><span data-zh>兼容 Obsidian</span></b><span data-en>Sync to a local folder, one .md file per note.</span><span data-zh>同步到本地文件夹，一篇笔记一个 .md 文件。</span></div>
+          <div><b><span data-en>Export anytime</span><span data-zh>随时导出</span></b><span data-en>Markdown or a full JSON backup.</span><span data-zh>Markdown 或完整的 JSON 备份。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div class="reveal">
+          <div class="kicker"><span data-en>Keyboard</span><span data-zh>快捷键</span></div>
+          <h2><span data-en>Built for the keyboard</span><span data-zh>为键盘而设计</span></h2>
+          <table class="keys">
+            <tr><td><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd></td><td><span data-en>Open the side panel</span><span data-zh>打开侧边栏</span></td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></td><td><span data-en>Clip the selection or page</span><span data-zh>摘录选中内容或整页</span></td></tr>
+            <tr><td><kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>K</kbd></td><td><span data-en>Search everything</span><span data-zh>搜索一切</span></td></tr>
+            <tr><td><kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td><span data-en>Turn the line into a task</span><span data-zh>把当前行变成任务</span></td></tr>
+            <tr><td><kbd>/</kbd> <span data-zh>或 <kbd>、</kbd></span></td><td><span data-en>Slash menu while editing</span><span data-zh>编辑时打开插入菜单</span></td></tr>
+            <tr><td><kbd>Esc</kbd></td><td><span data-en>Finish editing</span><span data-zh>完成编辑</span></td></tr>
+          </table>
+        </div>
+        <div class="reveal" id="faq">
+          <div class="kicker">FAQ</div>
+          <h2><span data-en>Questions</span><span data-zh>常见问题</span></h2>
+          <details>
+            <summary><span data-en>Is it free?</span><span data-zh>收费吗？</span></summary>
+            <p><span data-en>Yes. There are no paid tiers and no ads.</span><span data-zh>免费，没有付费版，也没有广告。</span></p>
+          </details>
+          <details>
+            <summary><span data-en>Where are my notes stored?</span><span data-zh>笔记存在哪里？</span></summary>
+            <p><span data-en>In your browser's local storage on this computer. Optionally, HohoSide can also write each note as a Markdown file to a folder you choose.</span><span data-zh>存在这台电脑的浏览器本地存储里。你也可以让它把每篇笔记写成 Markdown 文件，存到你指定的文件夹。</span></p>
+          </details>
+          <details>
+            <summary><span data-en>Does it sync between computers?</span><span data-zh>能在多台电脑之间同步吗？</span></summary>
+            <p><span data-en>Not by itself — nothing leaves your computer. Point folder sync at a folder you already sync (iCloud Drive, Dropbox, an Obsidian vault) to read your notes elsewhere.</span><span data-zh>它本身不同步，数据不离开你的电脑。可以把「同步到文件夹」指向你已在同步的目录（iCloud、Dropbox、Obsidian 库），在别处查看笔记。</span></p>
+          </details>
+          <details>
+            <summary><span data-en>Why does it ask for tab access?</span><span data-zh>为什么要读取标签页的权限？</span></summary>
+            <p><span data-en>Only when you first use a feature that needs it — saving the current page or dragging in a clip — so the clip can keep its source. You can decline or revoke it at any time.</span><span data-zh>只有第一次用到「保存当前页」或拖入摘录时才会请求，用来记下摘录的来源网页。可以拒绝，也能随时撤销。</span></p>
+          </details>
+          <details>
+            <summary><span data-en>Can I use my Obsidian Tasks syntax?</span><span data-zh>支持 Obsidian Tasks 的写法吗？</span></summary>
+            <p><span data-en>Yes. Dates, reminders and priorities use the same emoji metadata, e.g. <code>📅 2026-11-05</code> and <code>⏫</code>.</span><span data-zh>支持。日期、提醒和优先级使用相同的 emoji 写法，例如 <code>📅 2026-11-05</code>、<code>⏫</code>。</span></p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap reveal">
+        <img src="assets/icon.png" alt="">
+        <h2><span data-en>Keep your notes next to your reading.</span><span data-zh>让笔记就在网页旁边。</span></h2>
+        <a class="btn" href="https://chromewebstore.google.com/detail/anadoinlkblfpgfagjnnldinfkdjnnfc">
+          <span data-en>Add to Chrome — it's free</span><span data-zh>免费添加到 Chrome</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 HohoSide</span>
+      <nav>
+        <a href="privacy.html"><span data-en>Privacy policy</span><span data-zh>隐私政策</span></a>
+        <a href="https://github.com/hoho-work/hohoside/issues"><span data-en>Support</span><span data-zh>反馈与支持</span></a>
+        <a href="mailto:ryan.tian.cn@gmail.com"><span data-en>Contact</span><span data-zh>联系</span></a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

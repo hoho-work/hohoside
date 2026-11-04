@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — HohoSide</title>
+  <meta name="title-en" content="Privacy Policy — HohoSide">
+  <meta name="title-zh" content="隐私政策 — HohoSide">
+  <meta name="description" content="Markdown notes, tasks and web clips in Chrome's side panel. Plain-language reminders, ⌘K search, and your data stays on your computer.">
+  <meta name="description-en" content="Markdown notes, tasks and web clips in Chrome's side panel. Plain-language reminders, ⌘K search, and your data stays on your computer.">
+  <meta name="description-zh" content="Chrome 侧边栏里的 Markdown 笔记、待办与网页摘录。用一句话设提醒，⌘K 找回一切，数据只留在你的电脑上。">
+  <meta property="og:title" content="HohoSide — Notes, Tasks &amp; Clips">
+  <meta property="og:description" content="Markdown notes, tasks and web clips in Chrome's side panel. No sign-up, all local.">
+  <meta property="og:image" content="https://hoho-work.github.io/hohoside/assets/og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>
+    // Pick the language before first paint so nothing flashes.
+    (function () {
+      var q = new URLSearchParams(location.search).get('lang'), s = null, l = 'en';
+      try { s = localStorage.getItem('hohoside-lang'); } catch (e) {}
+      if (q === 'zh' || q === 'en') l = q;
+      else if (s === 'zh' || s === 'en') l = s;
+      else {
+        var ls = navigator.languages || [navigator.language || 'en'];
+        for (var i = 0; i < ls.length; i++) {
+          var x = String(ls[i]).toLowerCase();
+          if (x.indexOf('zh') === 0) { l = 'zh'; break; }
+          if (x.indexOf('en') === 0) break;
+        }
+      }
+      document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+    })();
+  </script>
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/icon.png" alt="">HohoSide</a>
+      <nav class="nav">
+        <a href="./#features"><span data-en>Features</span><span data-zh>功能</span></a>
+        <a href="./#privacy"><span data-en>Privacy</span><span data-zh>隐私</span></a>
+        <a href="./#faq"><span data-en>FAQ</span><span data-zh>常见问题</span></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn small" href="https://chromewebstore.google.com/detail/anadoinlkblfpgfagjnnldinfkdjnnfc">
+        <span data-en>Add to Chrome</span><span data-zh>添加到 Chrome</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap article">
+  <div data-en>
+    <h1>HohoSide Privacy Policy</h1>
+    <p class="date">Effective date: November 4, 2026</p>
+<p>HohoSide is a browser extension for keeping your own notes, tasks and web clips in the side panel. Our principle is simple: <strong>your data belongs to you and stays on your computer.</strong></p>
+<h2>What we collect</h2>
+<p><strong>Nothing.</strong> HohoSide has no server and no accounts, and contains no analytics, advertising or tracking code.</p>
+<h2>Where your data lives</h2>
+<ul>
+<li>Notes, tasks, clips and settings are kept in your browser's local storage (<code>chrome.storage.local</code>).</li>
+<li>Images, note version history and automatic snapshots are kept in your browser's local IndexedDB.</li>
+<li>If you turn on “Sync to a local folder”, notes are written as Markdown files to a folder <strong>you choose</strong> on your computer.</li>
+<li>Uninstalling the extension deletes this data from the browser; folders you synced to and files you exported are not affected.</li>
+</ul>
+<h2>Network requests</h2>
+<p>HohoSide only uses the network when you ask it to:</p>
+<ul>
+<li><strong>When you clip an image from a web page</strong>, the image is downloaded from the site it is on and stored locally so it works offline.</li>
+<li><strong>When you open a clip's original page</strong>, the page opens in your browser.</li>
+</ul>
+<p>These requests go only to the sites the content came from. None of your data is sent to us or to any third party.</p>
+<h2>Permissions</h2>
+<p>Each permission is used only for its feature; see the permission notes on the store page. Optional permissions (reading the current tab, access to a site) are requested the first time you use the related feature. You can decline them, and revoke them at any time in Chrome's extension settings.</p>
+<h2>Your control</h2>
+<ul>
+<li>Export all your data (Markdown or JSON) at any time.</li>
+<li>Restore from automatic snapshots, or remove the extension to delete all data from the browser.</li>
+</ul>
+<h2>Changes</h2>
+<p>If this policy changes, this page will be updated along with the effective date.</p>
+<h2>Contact</h2>
+<p>For questions, email <a href="mailto:ryan.tian.cn@gmail.com">ryan.tian.cn@gmail.com</a> or open an issue at <a href="https://github.com/hoho-work/hohoside/issues">https://github.com/hoho-work/hohoside/issues</a>.</p>
+
+  </div>
+  <div data-zh>
+    <h1>HohoSide 隐私政策</h1>
+    <p class="date">生效日期：2026 年 11 月 4 日</p>
+<p>HohoSide 是一个浏览器扩展，用来在侧边栏里记录你自己的笔记、待办和网页摘录。我们的原则很简单：<strong>你的数据只属于你，只存在你的电脑上。</strong></p>
+<h2>我们收集什么</h2>
+<p><strong>什么都不收集。</strong> HohoSide 没有服务器，不需要账号，不包含任何统计、分析、广告或追踪代码。</p>
+<h2>数据存在哪里</h2>
+<ul>
+<li>笔记、待办、摘录和设置保存在你的浏览器本地存储（<code>chrome.storage.local</code>）中。</li>
+<li>图片、笔记的历史版本和自动快照保存在浏览器本地的 IndexedDB 中。</li>
+<li>如果你开启了「同步到本地文件夹」，笔记会以 Markdown 文件写入<strong>你自己选择的</strong>电脑文件夹。</li>
+<li>卸载扩展会删除浏览器中的这些数据；同步到文件夹或导出的文件不受影响。</li>
+</ul>
+<h2>网络请求</h2>
+<p>HohoSide 只在以下由你主动触发的情况下访问网络：</p>
+<ul>
+<li><strong>摘录网页图片时</strong>：从图片所在的网站下载这张图片并保存在本机，以便离线查看。</li>
+<li><strong>打开摘录的原网页时</strong>：在浏览器中打开该网页。</li>
+</ul>
+<p>这些请求只发往内容本来所在的网站，不会把你的任何数据发送给我们或第三方。</p>
+<h2>权限</h2>
+<p>每项权限都只用于其功能本身，具体见商店页面的权限说明。可选权限（读取当前标签页、访问某个网站）只在你第一次使用相关功能时请求，你可以拒绝，也可以随时在 Chrome 的扩展设置中撤销。</p>
+<h2>你的控制权</h2>
+<ul>
+<li>随时导出全部数据（Markdown 或 JSON）。</li>
+<li>随时从自动快照恢复，或删除扩展以清除浏览器中的所有数据。</li>
+</ul>
+<h2>变更</h2>
+<p>如本政策有变化，会在此页面更新并修改生效日期。</p>
+<h2>联系</h2>
+<p>如有问题，请发邮件至 <a href="mailto:ryan.tian.cn@gmail.com">ryan.tian.cn@gmail.com</a>，或在 <a href="https://github.com/hoho-work/hohoside/issues">https://github.com/hoho-work/hohoside/issues</a> 提交反馈。</p>
+
+  </div>
+</main>
+<footer>
+    <div class="wrap">
+      <span>© 2026 HohoSide</span>
+      <nav>
+        <a href="privacy.html"><span data-en>Privacy policy</span><span data-zh>隐私政策</span></a>
+        <a href="https://github.com/hoho-work/hohoside/issues"><span data-en>Support</span><span data-zh>反馈与支持</span></a>
+        <a href="mailto:ryan.tian.cn@gmail.com"><span data-en>Contact</span><span data-zh>联系</span></a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
